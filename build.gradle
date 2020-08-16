@@ -8,13 +8,13 @@ apply plugin: 'signing'
 sourceCompatibility = 1.6
 targetCompatibility = 1.6
 
-group = 'com.github.rholder'
-version = '1.3.0.581.1'
+group = 'com.github.albarron'
+version = '2.0.0'
 ext.packaging = 'jar'
 
 // not pushing to Maven Central
-ext.sonatypeUsernameBogus = 'bogus'
-ext.sonatypePasswordBogus = 'bogus'
+ext.sonatypeUsername = 'bogus'
+ext.sonatypePassword = 'bogus'
 
 repositories {
     mavenCentral()
@@ -91,7 +91,7 @@ uploadArchives {
                 pom.project {
                     name 'snowball-stemmer'
                     description "This is the Java version of Snowball, a small string processing language designed for creating stemming algorithms for use in Information Retrieval."
-                    url 'http://snowball.tartarus.org/'
+                    url 'https://snowballstem.org'
                     licenses {
                         license {
                             name 'BSD License'
@@ -100,14 +100,18 @@ uploadArchives {
                         }
                     }
                     scm {
-                        url 'scm:https://github.com/rholder/snowball-stemmer.git'
-                        connection 'scm:git@github.com:rholder/snowball-stemmer.git'
-                        developerConnection 'scm:git@github.com:rholder/snowball-stemmer.git'
+                        url 'scm:https://github.com/albarron/snowball-stemmer.git'
+                        connection 'scm:git@github.com:albarron/snowball-stemmer.git'
+                        developerConnection 'scm:git@github.com:albarron/snowball-stemmer.git'
                     }
                     developers {
                         developer {
                             id 'rholder'
                             name 'Ray Holder'
+                        }
+                        developer {
+                            id 'albarron'
+                            name 'Alberto Barron'
                         }
                     }
                 }
@@ -117,6 +121,9 @@ uploadArchives {
 }
 
 // enable Gradle Wrapper support for bootstrapping with specific version
-task wrapper(type: Wrapper) {
-    gradleVersion = '1.10'
+//task wrapper(type: Wrapper) {
+//    gradleVersion = '4.4'
+//}
+wrapper {
+    gradleVersion = '4.9'
 }
