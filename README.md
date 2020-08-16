@@ -12,15 +12,28 @@ on Maven Central.
 ```
 
 ##Gradle
+This is the original compilation:
 ```groovy
 compile "com.github.albarron:snowball-stemmer:2.0.0"
 ```
+I used this one instead:
+```
+ gradle build
+```
+It produces all jar files.
+
+The resulting jar files are currently NOT pushed to maven central. They can be installed locally running
+```
+mvn install:install-file -Dfile=snowball-stemmer-2.0.0.jar -DgroupId=com.github.albarron -DartifactId=snowball-stemmer -Dversion=2.0.0 -Dpackaging=jar -DgeneratePom=true
+```
+
+Anf the dependency can be added as usual in the maven pom file
 
 ##Versioning
 In the absence of tags, branches, or releases in the original project SVN repository to call out a version, let's go
 with what [PyStemmer](https://pypi.python.org/pypi/PyStemmer) is currently using and tack on the SVN revision number at
-the end followed by my patch revision number (to fix anything weird that I introduce). For the initial version, we'll
-use 1.3.0.581.1.
+the end followed by my patch revision number (to fix anything weird that I ---that means rholder--- introduce). For the initial version, we'll
+use 1.3.0.581.1. The current version is 2.0.0
 
 ##License
 This is a copy of the details about the license from [here](https://snowballstem.org/license.html):
